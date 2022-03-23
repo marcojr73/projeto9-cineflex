@@ -1,0 +1,27 @@
+.foot{
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 117px;
+    background-color: var(--color-bot);
+    width: 375px;
+    font-size: 26px;
+}
+.info-movie{
+    width: 64px;
+    height: 89px;
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info-img-movie{
+    width: 48px;
+    height: 72px;
+}

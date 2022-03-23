@@ -1,0 +1,13 @@
+.banner-movie{
+    width: 129px;
+    height: 193px;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+.list-movies{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 27px 40px;
+}

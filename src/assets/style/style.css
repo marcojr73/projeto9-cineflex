@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    --color-fundo: #E5E5E5;
+    --color-top: #C3CFD9;
+    --color-bot: #9EADBA;
+    --color-buttons: #E8833A;
+    --color-txt: #293845;
+    --color-bot: #9EADBA;
+    --color-but1: #1AAE9E;
+    --color-but2: #7B8B99;
+    --color-but3: #F7C52B;
+}
+.body{
+    font-family: 'Roboto';
+}
+

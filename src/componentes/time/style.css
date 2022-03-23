@@ -1,0 +1,22 @@
+.date-time{
+    width: 375px;
+    margin: auto;
+    font-size: 20px;
+    color: var(--color-txt);
+    margin-bottom: 23px;
+}
+.container-time{
+    display: flex;
+}
+.choice-time{
+    width: 83px;
+    height: 43px;
+    background-color: var(--color-buttons);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    margin-top: 24px;
+    font-size: 18px;
+    color: white;
+}

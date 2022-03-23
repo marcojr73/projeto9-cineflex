@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import App from "./componentes/App";
+import App from "./componentes/app/App";
 
 import "./assets/style/reset.css";
 import "./assets/style/style.css";

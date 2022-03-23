@@ -1,0 +1,27 @@
+.info-time, .info-seat, .client{
+    width: 350px;
+    height: 110px;
+    margin: auto;
+    color: #293845;
+}
+.info-time h1, .info-seat h1, .client h1{
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.info-time p, .info-seat p, .client p{
+    font-size: 22px;
+}
+.back-home{
+    width: 225px;
+    height: 42px;
+    background-color: var(--color-buttons);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 75px;
+    border: 1px solid #D5D5D5;
+    border-radius: 3px;
+    color: white;
+}
