@@ -6,7 +6,6 @@ import Movie from "../movie/Movie"
 import Time from "../time/Time"
 import Reservation from "../reservation/Reservation";
 import Ticket from "../ticket/Ticket"
-import Footer from "../footer/Footer"
 
 
 export default function App(){
