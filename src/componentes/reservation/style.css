@@ -1,3 +1,6 @@
+main{
+    flex-wrap: wrap;
+}
 .seats{
     width: 275px;
     margin: auto;

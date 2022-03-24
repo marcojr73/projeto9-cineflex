@@ -20,3 +20,8 @@
     font-size: 18px;
     color: white;
 }
+main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

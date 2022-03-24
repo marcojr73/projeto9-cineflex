@@ -2,9 +2,10 @@
     width: 129px;
     height: 193px;
 }
-main{
+.main-movie{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .list-movies{
     display: grid;
