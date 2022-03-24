@@ -28,7 +28,7 @@ export default function Reservation() {
         console.log(seat)
         // const [free, setFree] = useState(false);
         
-        const css = seat.isAvailable === true ? `seat second` : "seat"; 
+        const css = seat.isAvailable === true ? `seat second` : "seat third"; 
             return(
                 <div className={css}>{index + 1}</div>
             )
