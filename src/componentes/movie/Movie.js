@@ -9,8 +9,6 @@ import "./style.css";
 
 export default function Movie() {
 
-    
-
     const [movies, setMovies] = useState([]);
     useEffect(() => {
         const requisicao = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
@@ -19,8 +17,9 @@ export default function Movie() {
             setMovies(response.data);
         });
     }, []);
-    
 
+    
+    
     return (
         <section className="main-movie">
             <TitlePag title="Selecione o filme"/>

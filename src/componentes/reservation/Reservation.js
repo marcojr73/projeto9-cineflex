@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { useParams } from "react-router";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import Footer from "../footer/Footer";
 import TitlePag from "../titlePag/TitlePag";
@@ -6,27 +9,43 @@ import TitlePag from "../titlePag/TitlePag";
 import "./style.css";
 
 export default function Reservation() {
+
+    const { sessionID } = useParams();
+    console.log(sessionID);
+    const [places, setPlaces] = useState([])
+
+    useEffect(() => {
+        const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessionID}/seats`);
+        promisse.then(response => {
+            setPlaces(response.data.seats)
+        })
+        promisse.catch(err => alert(err.response));
+    }, [])
+
+
+    function Seat(props){
+        const {seat, index} = props;
+        console.log(seat)
+        // const [free, setFree] = useState(false);
+        
+        const css = seat.isAvailable === true ? `seat second` : "seat"; 
+            return(
+                <div className={css}>{index + 1}</div>
+            )
+    }
+
+
     return (
         <main>
-            <TitlePag title="Selecione os assentos"/>
+            <TitlePag title="Selecione os assentos" />
             <section className="seats">
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div><div className="seat">1</div>
-                <div className="seat">1</div><div className="seat">1</div>
+                {
+                    places.map((seat,index) => {
+                        return(
+                            <Seat seat={seat} index={index} />
+                        )
+                    })
+                }
             </section>
 
             <section className="description">

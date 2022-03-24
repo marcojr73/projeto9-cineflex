@@ -14,7 +14,7 @@ export default function App(){
             <Routes>
                 <Route path="/" element={<Movie />}></Route>
                 <Route path="/time:movieID" element={<Time />}></Route>
-                <Route path="/reservation" element={<Reservation />}></Route>
+                <Route path="/reservation:sessionID" element={<Reservation />}></Route>
                 <Route path="/ticket" element={<Ticket />}></Route>
             </Routes>
         </BrowserRouter>

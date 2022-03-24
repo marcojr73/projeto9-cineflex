@@ -9,7 +9,6 @@ import "./style.css";
 export default function Time() {
 
     const { movieID } = useParams()
-
     const [sessions, setSessions] = useState([])
 
     useEffect(() => {
@@ -19,8 +18,7 @@ export default function Time() {
         })
     }, [])
 
-    console.log(movieID)
-
+    console.log(sessions)
     return (
         < main >
         <TitlePag title="Selecione o horário" />
@@ -35,7 +33,7 @@ export default function Time() {
                             {
                                 session.showtimes.map(time =>{
                                     return(
-                                        <Link to="/reservation"> <div className="choice-time">{time.name}</div> </Link>
+                                        <Link to={`/reservation${time.id}`}> <div className="choice-time">{time.name}</div> </Link>
                                     )
                                 })
                             }
