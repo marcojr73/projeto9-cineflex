@@ -3,8 +3,9 @@ import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Footer from "../footer/Footer";
 import TitlePag from "../titlePag/TitlePag";
+import Seat from "./Seat";
+import Footer from "../footer/Footer";
 
 import "./style.css";
 
@@ -15,8 +16,8 @@ export default function Reservation() {
     const [arrReserve, setArrReserve] = useState([]);
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
-    const navigate = useNavigate();
     const [numberSeats, setNumberSeats] = useState([]);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -27,27 +28,7 @@ export default function Reservation() {
         promisse.catch(err => alert(err.response));
     }, [])
 
-    function Seat(props) {
-        const { seat, index } = props;
-        const [selected, setSelected] = useState("");
-
-
-
-        function changeColor() {
-            if (selected === "") {
-                setSelected("color-selected");
-                console.log("selected")
-            } else {
-                setSelected("");
-                console.log("vazio")
-            }
-        }
-
-        return (
-            <div onClick={() => {filterSeat(seat); changeColor()}} 
-            className={seat.isAvailable === true ? `seat ${selected}` : "seat color-not-valid"} >{index + 1}</div>
-        )
-    }
+    
 
     function filterSeat(seat) {
         if (seat.isAvailable === true) {
@@ -74,7 +55,6 @@ export default function Reservation() {
 
     function postReserve(e) {
         e.preventDefault();
-
         const post = {
             ids: arrReserve,
             name: name,
@@ -87,14 +67,12 @@ export default function Reservation() {
         };
 
         const promisse = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", post);
-
         promisse.then(response => {
             navigate("/ticket", { state: ticket });
         })
         promisse.catch(response => {
             alert("deu ruim")
         })
-
     }
 
 
@@ -104,10 +82,9 @@ export default function Reservation() {
                 <TitlePag title="Selecione os assentos" />
                 <section className="seats">
                     {
-
                         places.seats.map((seat, index) => {
                             return (
-                                <Seat seat={seat} index={index} />
+                                <Seat seat={seat} index={index} filterSeat={filterSeat}/>
                             )
                         })
                     }
@@ -152,7 +129,7 @@ export default function Reservation() {
             </main>
         )
     } else {
-        return <h1>carregando</h1>
+        return <img className="load" src="../../assets/load.gif"/>
     }
 
 }

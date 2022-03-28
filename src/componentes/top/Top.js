@@ -3,7 +3,7 @@ import "./top.css";
 export default function Top(){
     return(
         <header>
-            <h1>CINEFLIX</h1>
+            <h1>CINEFLEX</h1>
         </header>
     )
 }

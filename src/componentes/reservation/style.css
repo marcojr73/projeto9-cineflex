@@ -15,7 +15,6 @@ main{
     align-items: center;
     width: 25px;
     height: 25px;
-    background-color: var(--color-but2);
     background-color: #c3cfd9;
     border-radius: 50%;
     font-size: 15px;
@@ -28,22 +27,22 @@ main{
     margin-top: 16px;
     color: #4E5A65;
 }
-.a{
-    background-color: red;
-}
 .circle{
     width: 20px;
     height: 20px;
     border-radius: 50%;
 }
 .color-selected{
-    background-color: red;
+    background-color: var(--color-but1);
+    border: 1px solid #1AAE9E;
 }   
 .color-available{
     background-color: var(--color-but2);
+    border: 1px solid #7B8B99;
 }
 .color-not-valid{
     background-color: var(--color-but3);
+    border: 1px solid #F7C52B;
 }
 .selected{
     display: flex;
@@ -102,4 +101,8 @@ input::placeholder{
     border: 1px solid #D5D5D5;
     border-radius: 3px;
     color: white;
+}
+.load{
+    margin-top: 50%;
+    margin-left: 50%;
 }
