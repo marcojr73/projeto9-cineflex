@@ -1,16 +1,16 @@
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import Footer from "../footer/Footer";
 import TitlePag from "../titlePag/TitlePag";
+
 import "./style.css";
 
 export default function Time() {
 
     const { movieID } = useParams()
     const [sessions, setSessions] = useState([])
-
     useEffect(() => {
         const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${movieID}/showtimes`);
         promisse.then(response => {
@@ -18,7 +18,6 @@ export default function Time() {
         })
     }, [])
 
-    console.log(sessions)
     return (
         < main >
         <TitlePag title="Selecione o horário" />

@@ -32,13 +32,13 @@ main{
     height: 20px;
     border-radius: 50%;
 }
-.first{
+.color-selected{
     background-color: var(--color-but1);
 }   
-.second{
+.color-available{
     background-color: var(--color-but2);
 }
-.third{
+.color-not-valid{
     background-color: var(--color-but3);
 }
 .selected{

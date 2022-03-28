@@ -1,15 +1,21 @@
 .foot{
+    display: flex;
+    align-items: center;
+    height: 117px;
+    width: 100%;
+    font-size: 26px;
+    background-color: var(--color-bot);
     position: fixed;
     right: 0;
     left: 0;
     bottom: 0;
-    margin: auto;
+}
+.background{
     display: flex;
     align-items: center;
-    height: 117px;
-    background-color: var(--color-bot);
+    position: absolute;
     width: 375px;
-    font-size: 26px;
+    left: calc(50% - 187.5px);
 }
 .info-movie{
     width: 64px;

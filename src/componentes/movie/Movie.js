@@ -17,9 +17,7 @@ export default function Movie() {
             setMovies(response.data);
         });
     }, []);
-
-    
-    
+    console.log(movies);
     return (
         <section className="main-movie">
             <TitlePag title="Selecione o filme"/>
