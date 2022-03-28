@@ -5,7 +5,7 @@ export default function Footer({img, title, hour, date}){
         <footer className="foot">
             <div className="background">
                 <div className="info-movie">
-                    <img className="info-img-movie" src={img}/> 
+                    <img className="info-img-movie" src={img} alt="logo"/> 
                 </div>
                 <p>{title}
                 <span>{date} {hour}</span>

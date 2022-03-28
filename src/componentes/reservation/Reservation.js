@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -17,7 +17,7 @@ export default function Reservation() {
     const [cpf, setCpf] = useState("");
     const navigate = useNavigate();
     const [numberSeats, setNumberSeats] = useState([]);
-    
+
 
     useEffect(() => {
         const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessionID}/seats`);
@@ -26,24 +26,33 @@ export default function Reservation() {
         })
         promisse.catch(err => alert(err.response));
     }, [])
-    console.log(places)
-    const { movie } = places;
 
     function Seat(props) {
         const { seat, index } = props;
-        const css = seat.isAvailable === true ? `seat color-available` : "seat color-not-valid";
+        const [selected, setSelected] = useState("");
+
+
+
+        function changeColor() {
+            if (selected === "") {
+                setSelected("color-selected");
+                console.log("selected")
+            } else {
+                setSelected("");
+                console.log("vazio")
+            }
+        }
 
         return (
-            <div onClick={() => filterSeat(seat)} className={css} >{index + 1}</div>
+            <div onClick={() => {filterSeat(seat); changeColor()}} 
+            className={seat.isAvailable === true ? `seat ${selected}` : "seat color-not-valid"} >{index + 1}</div>
         )
     }
 
     function filterSeat(seat) {
-        console.log(numberSeats)
-        console.log(arrReserve)
-        if (seat.isAvailable == true) {
+        if (seat.isAvailable === true) {
             const addRemove = arrReserve.find(e => e === seat.id)
-            if (addRemove == undefined) {
+            if (addRemove === undefined) {
                 setNumberSeats([...numberSeats, seat.name])
                 setArrReserve([...arrReserve, seat.id])
             } else {
@@ -65,7 +74,7 @@ export default function Reservation() {
 
     function postReserve(e) {
         e.preventDefault();
-    
+
         const post = {
             ids: arrReserve,
             name: name,
@@ -74,13 +83,13 @@ export default function Reservation() {
         let ticket = {
             seats: post,
             session: places,
-            numberSeats: numberSeats 
-          };
+            numberSeats: numberSeats
+        };
 
         const promisse = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", post);
 
         promisse.then(response => {
-            navigate("/ticket", {state: ticket});
+            navigate("/ticket", { state: ticket });
         })
         promisse.catch(response => {
             alert("deu ruim")
@@ -95,7 +104,7 @@ export default function Reservation() {
                 <TitlePag title="Selecione os assentos" />
                 <section className="seats">
                     {
-                        
+
                         places.seats.map((seat, index) => {
                             return (
                                 <Seat seat={seat} index={index} />
@@ -139,13 +148,11 @@ export default function Reservation() {
 
                     <button type="submit" className="reserve-button">Reservar assento(s)</button>
                 </form>
-                <Footer img={places.movie.posterURL} hour={places.name} date={places.day.weekday} title={places.movie.title}   />
+                <Footer img={places.movie.posterURL} hour={places.name} date={places.day.weekday} title={places.movie.title} />
             </main>
         )
     } else {
-        return (
-        <img src="../../assets/images/load.gif"/>
-        )
+        return <h1>carregando</h1>
     }
-    
+
 }

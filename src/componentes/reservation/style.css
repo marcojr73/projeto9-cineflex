@@ -16,7 +16,7 @@ main{
     width: 25px;
     height: 25px;
     background-color: var(--color-but2);
-    border: 1px solid #808F9D;
+    background-color: #c3cfd9;
     border-radius: 50%;
     font-size: 15px;
 }
@@ -28,13 +28,16 @@ main{
     margin-top: 16px;
     color: #4E5A65;
 }
+.a{
+    background-color: red;
+}
 .circle{
     width: 20px;
     height: 20px;
     border-radius: 50%;
 }
 .color-selected{
-    background-color: var(--color-but1);
+    background-color: red;
 }   
 .color-available{
     background-color: var(--color-but2);

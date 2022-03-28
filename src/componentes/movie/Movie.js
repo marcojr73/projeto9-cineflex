@@ -30,7 +30,7 @@ export default function Movie() {
                           }}
                         >
                             
-                            <img className="banner-movie" src={movie.posterURL} />
+                            <img className="banner-movie" src={movie.posterURL} alt="banner" />
                         </Link>
                     )
                 })}
