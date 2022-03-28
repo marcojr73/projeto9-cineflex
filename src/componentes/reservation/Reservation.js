@@ -17,6 +17,7 @@ export default function Reservation() {
     const [cpf, setCpf] = useState("");
     const navigate = useNavigate();
     const [numberSeats, setNumberSeats] = useState([]);
+    
 
     useEffect(() => {
         const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessionID}/seats`);
@@ -25,11 +26,13 @@ export default function Reservation() {
         })
         promisse.catch(err => alert(err.response));
     }, [])
-
+    console.log(places)
+    const { movie } = places;
 
     function Seat(props) {
         const { seat, index } = props;
         const css = seat.isAvailable === true ? `seat color-available` : "seat color-not-valid";
+
         return (
             <div onClick={() => filterSeat(seat)} className={css} >{index + 1}</div>
         )
@@ -92,6 +95,7 @@ export default function Reservation() {
                 <TitlePag title="Selecione os assentos" />
                 <section className="seats">
                     {
+                        
                         places.seats.map((seat, index) => {
                             return (
                                 <Seat seat={seat} index={index} />
@@ -135,11 +139,13 @@ export default function Reservation() {
 
                     <button type="submit" className="reserve-button">Reservar assento(s)</button>
                 </form>
-                <Footer />
+                <Footer img={places.movie.posterURL} hour={places.name} date={places.day.weekday} title={places.movie.title}   />
             </main>
         )
     } else {
-        return <>loading</>;
+        return (
+        <img src="../../assets/images/load.gif"/>
+        )
     }
+    
 }
-// to="/ticket"

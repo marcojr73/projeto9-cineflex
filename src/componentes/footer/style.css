@@ -31,3 +31,8 @@
     width: 48px;
     height: 72px;
 }
+.foot p{
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+}

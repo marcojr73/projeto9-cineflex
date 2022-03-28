@@ -1,16 +1,16 @@
 import "./style.css"
 
-export default function Footer(){
+export default function Footer({img, title, hour, date}){
     return(
-        <>
         <footer className="foot">
             <div className="background">
                 <div className="info-movie">
-                    <img className="info-img-movie" src="https://www.ucicinemas.com.br/Content/Upload/Filmes/Posters/9906/filme_9906.jpg"/> 
+                    <img className="info-img-movie" src={img}/> 
                 </div>
-                <p>Nome do filme</p>
+                <p>{title}
+                <span>{date} {hour}</span>
+                </p>
             </div>
         </footer>
-        </>
     )
 }

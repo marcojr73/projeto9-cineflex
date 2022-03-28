@@ -24,7 +24,12 @@ export default function Movie() {
             <figure className="list-movies">
                 {movies.map(movie => {
                     return (
-                        <Link to={`/time${movie.id}`}>
+                        <Link to={`/time${movie.id}`} 
+                        state={{img:movie.posterURL,
+                            title:movie.title,
+                          }}
+                        >
+                            
                             <img className="banner-movie" src={movie.posterURL} />
                         </Link>
                     )

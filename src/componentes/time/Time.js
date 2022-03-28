@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -17,6 +17,9 @@ export default function Time() {
             setSessions(response.data.days)
         })
     }, [])
+
+    const {state} = useLocation()
+    console.log(state)
 
     return (
         < main >
@@ -41,7 +44,7 @@ export default function Time() {
                 )
             })
         }
-        <Footer />
+        <Footer img={state.img} title={state.title} />
         </main >
     )
 }
