@@ -12,6 +12,12 @@
 - [Veja meu deploy na Vercel aqui](https://projeto9-cineflex-neon.vercel.app/)
 
 ***
+# Demonstração
+
+<p align="center">
+   <img width=500 src="./src/assets/images/app.gif"/>
+</p>
+
 
 ## Como usar
 
